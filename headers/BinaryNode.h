@@ -8,7 +8,7 @@ class BinaryNode {
     BinaryNode<T>* rightChildPtr;
 public:
     BinaryNode();
-    BinaryNode(const T& anItem, BinaryNode<T>* leftPtr, BinaryNode<T>* rightPtr);
+    BinaryNode(const T& anItem, BinaryNode<T>* leftPtr = nullptr, BinaryNode<T>* rightPtr = nullptr);
 
     void setItem(const T& anItem);
     void setLeftChildPtr(BinaryNode<T>* newLeftChildPtr);
