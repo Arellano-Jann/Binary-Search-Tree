@@ -4,7 +4,7 @@ BinarySearchTree<T>::BinarySearchTree()
     : rootPtr(nullptr)
 {}
 
-template <typename T>//
+template <typename T>
 bool BinarySearchTree<T>::add(const T& newEntry){
     bool result = false;
     if(!contains(newEntry)){
@@ -15,7 +15,7 @@ bool BinarySearchTree<T>::add(const T& newEntry){
     return result;
 }
 
-template <typename T>//
+template <typename T>
 bool BinarySearchTree<T>::remove(const T& anEntry){
     bool result = false;
     if(contains(anEntry)){
@@ -24,7 +24,7 @@ bool BinarySearchTree<T>::remove(const T& anEntry){
     return result;
 }
 
-template <typename T>//
+template <typename T>
 void BinarySearchTree<T>::clear(){
     while(!isEmpty()){
         remove(getRootData());
@@ -48,7 +48,7 @@ int BinarySearchTree<T>::getNumberOfNodes() const{
     
 }
 
-template <typename T>//
+template <typename T>
 T BinarySearchTree<T>::getRootData() const{
     T result;
     if(rootPtr != nullptr){
@@ -57,7 +57,7 @@ T BinarySearchTree<T>::getRootData() const{
     return result;
 }
 
-template <typename T>//
+template <typename T>
 T BinarySearchTree<T>::getEntry(const T& anEntry) const{
     T result;
     BinaryNode<T>* nodePtr = findNode(rootPtr, anEntry);
@@ -67,12 +67,12 @@ T BinarySearchTree<T>::getEntry(const T& anEntry) const{
     return result;
 }
 
-template <typename T>//
+template <typename T>
 bool BinarySearchTree<T>::contains(const T& anEntry) const{
     return findNode(rootPtr, anEntry) != nullptr;
 }
 
-template <typename T>//
+template <typename T>
 bool BinarySearchTree<T>::isEmpty() const{
     return rootPtr == nullptr;
 }
