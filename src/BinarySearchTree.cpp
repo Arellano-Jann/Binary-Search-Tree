@@ -1,3 +1,4 @@
+// The good stuff
 template <typename T>
 BinarySearchTree<T>::BinarySearchTree()
     : rootPtr(nullptr)
@@ -17,6 +18,13 @@ template <typename T>
 void BinarySearchTree<T>::clear(){
 
 }
+
+template <typename T>
+BinarySearchTree<T>::~BinarySearchTree(){ clear(); }
+
+
+
+// Info Getters
 
 template <typename T>
 int BinarySearchTree<T>::getHeight() const{
@@ -48,6 +56,10 @@ bool BinarySearchTree<T>::isEmpty() const{
 
 }
 
+
+
+// Traversals
+
 template <typename T>
 void BinarySearchTree<T>::preorderTraverse(void visit(T&)) const{
 
@@ -63,11 +75,9 @@ void BinarySearchTree<T>::postorderTraverse(void visit(T&)) const{
 
 }
 
-template <typename T>
-BinarySearchTree<T>::~BinarySearchTree(){ clear(); }
 
 
-
+// Protected
 
 template <typename T>
 BinaryNode<T>* placeNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr){
