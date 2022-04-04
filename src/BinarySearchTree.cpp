@@ -101,7 +101,7 @@ void BinarySearchTree<T>::postorderTraverse(void visit(T&)) const{
 // Protected
 
 template <typename T>
-BinaryNode<T>* placeNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr){
+BinaryNode<T>* BinarySearchTree<T>::placeNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr){
     if(subTreePtr == nullptr){
         subTreePtr = newNodePtr;
     }
@@ -115,7 +115,7 @@ BinaryNode<T>* placeNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr){
 }
 
 template <typename T>
-BinaryNode<T>* removeValue(BinaryNode<T>* subTreePtr, const T target, bool& success){
+BinaryNode<T>* BinarySearchTree<T>::removeValue(BinaryNode<T>* subTreePtr, const T target, bool& success){
     if(subTreePtr == nullptr){
         success = false;
     }
@@ -133,7 +133,7 @@ BinaryNode<T>* removeValue(BinaryNode<T>* subTreePtr, const T target, bool& succ
 }
 
 template <typename T>
-BinaryNode<T>* removeNode(BinaryNode<T>* nodePtr){
+BinaryNode<T>* BinarySearchTree<T>::removeNode(BinaryNode<T>* nodePtr){
     BinaryNode<T>* nodeToConnectPtr;
     if(nodePtr->isLeaf()){
         nodeToConnectPtr = nullptr;
@@ -154,7 +154,7 @@ BinaryNode<T>* removeNode(BinaryNode<T>* nodePtr){
 }
 
 template <typename T>
-BinaryNode<T>* removeLeftmostNode(BinaryNode<T>* nodePtr, T& inorderSuccessor){
+BinaryNode<T>* BinarySearchTree<T>::removeLeftmostNode(BinaryNode<T>* nodePtr, T& inorderSuccessor){
     if(nodePtr->getLeftChildPtr() == nullptr){
         inorderSuccessor = nodePtr->getItem();
         return removeNode(nodePtr);
@@ -166,7 +166,7 @@ BinaryNode<T>* removeLeftmostNode(BinaryNode<T>* nodePtr, T& inorderSuccessor){
 }
 
 template <typename T>
-BinaryNode<T>* findNode(BinaryNode<T>* nodePtr, const T& target) const{
+BinaryNode<T>* BinarySearchTree<T>::findNode(BinaryNode<T>* nodePtr, const T& target) const{
     if(nodePtr == nullptr){
         return nullptr;
     }
