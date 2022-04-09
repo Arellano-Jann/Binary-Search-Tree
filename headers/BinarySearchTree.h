@@ -9,10 +9,10 @@ class BinarySearchTree : public TreeInterface<T> {
     BinaryNode<T>* rootPtr;
 
 protected:
-    BinaryNode<T>* placeNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr); //
-    BinaryNode<T>* removeValue(BinaryNode<T>* subTreePtr, const T target, bool& success); //
+    BinaryNode<T>* placeNode(BinaryNode<T>* subTreeRootPtr, BinaryNode<T>* newNodePtr); //
+    BinaryNode<T>* removeValue(BinaryNode<T>* subTreeRootPtr, const T target, bool& success); //
     BinaryNode<T>* removeNode(BinaryNode<T>* nodePtr); //
-    BinaryNode<T>* removeLeftmostNode(BinaryNode<T>* nodePtr, T& inorderSuccessor); //
+    BinaryNode<T>* removeLeftmostNode(BinaryNode<T>* subTreeRootPtr, T& inorderSuccessor); //
     BinaryNode<T>* findNode(BinaryNode<T>* nodePtr, const T& target) const; //
 
 public:
