@@ -21,7 +21,7 @@ template <typename T>
 bool BinarySearchTree<T>::remove(const T& anEntry){
     bool result = false;
     if(contains(anEntry)){
-        rootPtr = removeValue(rootPtr, anEntry, result);
+        rootPtr = removeValue(rootPtr, anEntry, result); // doesnt make sense right now. it sets the root ptr to be the removed values subTree?
     }
     return result;
 }
@@ -40,11 +40,29 @@ BinarySearchTree<T>::~BinarySearchTree(){ clear(); }
 
 // Info Getters
 
+/**
+ * @brief Find's the longest edge path from the root to a leaf.
+ * @details Checks the left and right heights of the root. This recursively returns the longest path by checking each subsequent subtree's left and right heights.
+ * 
+ * @tparam T The type of data in the tree.
+ * @return int The maximum height of the tree.
+ */
 template <typename T>
 int BinarySearchTree<T>::getHeight() const{
-    
+    if (rootPtr == nullptr) return -1;
+    else{ // might return double the height
+        int leftHeight = 1 + getHeight(rootPtr->getLeftChildPtr());
+        int rightHeight = 1 + getHeight(rootPtr->getRightChildPtr());
+        return (leftHeight > rightHeight) ? leftHeight : rightHeight;
+    }
 }
 
+/**
+ * @brief 
+ * 
+ * @tparam T 
+ * @return int 
+ */
 template <typename T>
 int BinarySearchTree<T>::getNumberOfNodes() const{
     
