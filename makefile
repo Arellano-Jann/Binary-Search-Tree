@@ -3,7 +3,7 @@ CDIR = src
 ODIR = objs
 CPPFLAGS = -std=c++11 -g# flags
 DEPS = $(wildcard $(HDIR)/*.h)
-OBJ_FILES = main.o
+OBJ_FILES = main.o NumberGenerator.o
 OBJS = $(patsubst %.o, $(ODIR)/%.o, $(OBJ_FILES))# replaces everything in source ending in arg1 with arg2
 vpath %.h headers# basically a search function
 vpath %.cpp src
