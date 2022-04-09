@@ -104,12 +104,15 @@ void BinarySearchTree<T>::postorderTraverse(void visit(T&)) const{
 
 // Recursive algorithm to find and place node in tree
 /**
- * @brief DO THIS
+ * @brief Recursively find the place to insert the node in the tree.
+ * @details 1. If the subTreeRootPtr is empty, then the node is placed as the root.
+ *         2. The node is placed in the left subtree if the new node is less than the current node
+ *          3. The node is placed in the right subtree if the new node is greater than the current node.
  * 
  * @tparam T The type of data in the tree.
- * @param subTreeRootPtr 
- * @param newNodePtr 
- * @return BinaryNode<T>* 
+ * @param subTreeRootPtr The root of the subtree to search.
+ * @param newNodePtr The node to be placed in the tree.
+ * @return BinaryNode<T>* The root of the subtree.
  */
 template <typename T>
 BinaryNode<T>* BinarySearchTree<T>::placeNode(BinaryNode<T>* subTreeRootPtr, BinaryNode<T>* newNodePtr){
@@ -123,7 +126,7 @@ BinaryNode<T>* BinarySearchTree<T>::placeNode(BinaryNode<T>* subTreeRootPtr, Bin
     // this will never be equal to the subTreeRootPtr because this method is only used in the add method and the add method has a check if the node is in the tree
         subTreeRootPtr->setRightChildPtr(placeNode(subTreeRootPtr->getRightChildPtr(), newNodePtr));
     }
-    return subTreePtr;
+    return subTreeRootPtr;
 }
 
 
