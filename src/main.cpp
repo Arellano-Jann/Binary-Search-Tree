@@ -8,6 +8,6 @@ int main(){
     for (int i = 0; i < 100; i++){
         tree.add(gen.getArray()[i]);
     }
-    tree.preorderTraverse(std::cout);
+    tree.preorderTraverse( [] (int& i){ std::cout << i << " "; } );
     return 0;
 }
