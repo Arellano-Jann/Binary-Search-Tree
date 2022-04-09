@@ -62,18 +62,6 @@ int BinarySearchTree<T>::getHeight(BinaryNode<T>* nodePtr) const{
 }
 
 /**
- * @brief Find's the longest edge path from the root to a leaf. Overloaded function to getHeight().
- * @details Checks the left and right heights of the root. This recursively returns the longest path by checking each subsequent subtree's left and right heights.
- * 
- * @tparam T The type of data in the tree.
- * @return int The maximum height of the tree starting from the rootPtr.
- */
-template <typename T>
-int BinarySearchTree<T>::getHeight() const{
-    return getHeight(rootPtr);
-}
-
-/**
  * @brief Finds the number of nodes in the tree.
  * 
  * @tparam T The type of data in the tree.
@@ -91,6 +79,18 @@ int BinarySearchTree<T>::getNumberOfNodes(BinaryNode<T>* nodePtr) const{
         // int rightNodes = getNumberOfNodes(nodePtr->getRightChildPtr());
         // return 1 + leftNodes + rightNodes;
     }
+}
+
+/**
+ * @brief Find's the longest edge path from the root to a leaf. Overloaded function to getHeight().
+ * @details Checks the left and right heights of the root. This recursively returns the longest path by checking each subsequent subtree's left and right heights.
+ * 
+ * @tparam T The type of data in the tree.
+ * @return int The maximum height of the tree starting from the rootPtr.
+ */
+template <typename T>
+int BinarySearchTree<T>::getHeight() const{
+    return getHeight(rootPtr);
 }
 
 /**
@@ -195,6 +195,21 @@ void BinarySearchTree<T>::postorderTraverse(void visit(T&), BinaryNode<T>* nodeP
         preorderTraverse(visit, nodePtr->getRightChildPtr());
     }
     visit(nodePtr->getItem());
+}
+
+template <typename T>
+void BinarySearchTree<T>::preorderTraverse(void visit(T&)) const{
+    preorderTraverse(visit, rootPtr);
+}
+
+template <typename T>
+void BinarySearchTree<T>::inorderTraverse(void visit(T&)) const{
+    inorderTraverse(visit, rootPtr);
+}
+
+template <typename T>
+void BinarySearchTree<T>::postorderTraverse(void visit(T&)) const{
+    postorderTraverse(visit, rootPtr);
 }
 
 
