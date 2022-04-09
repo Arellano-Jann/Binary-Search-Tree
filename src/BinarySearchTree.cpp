@@ -44,19 +44,52 @@ BinarySearchTree<T>::~BinarySearchTree(){ clear(); }
 // Info Getters
 
 /**
- * @brief Find's the longest edge path from the root to a leaf.
- * @details Checks the left and right heights of the root. This recursively returns the longest path by checking each subsequent subtree's left and right heights.
+ * @brief Find's the longest edge path from the root to a leaf. Overloaded function to getHeight().
+ * @details Checks the left and right heights of the node. This recursively returns the longest path by checking each subsequent subtree's left and right heights.
  * 
  * @tparam T The type of data in the tree.
+ * @param nodePtr The node to check heights from.
  * @return int The maximum height of the tree.
  */
 template <typename T>
-int BinarySearchTree<T>::getHeight() const{
-    if (rootPtr == nullptr) return -1;
+int BinarySearchTree<T>::getHeight(BinaryNode<T>* nodePtr) const{
+    if (nodePtr == nullptr) return -1;
     else{ // might return double the height
-        int leftHeight = 1 + getHeight(rootPtr->getLeftChildPtr());
-        int rightHeight = 1 + getHeight(rootPtr->getRightChildPtr());
+        int leftHeight = 1 + getHeight(nodePtr->getLeftChildPtr());
+        int rightHeight = 1 + getHeight(nodePtr->getRightChildPtr());
         return (leftHeight > rightHeight) ? leftHeight : rightHeight;
+    }
+}
+
+/**
+ * @brief Find's the longest edge path from the root to a leaf. Overloaded function to getHeight().
+ * @details Checks the left and right heights of the root. This recursively returns the longest path by checking each subsequent subtree's left and right heights.
+ * 
+ * @tparam T The type of data in the tree.
+ * @return int The maximum height of the tree starting from the rootPtr.
+ */
+template <typename T>
+int BinarySearchTree<T>::getHeight() const{
+    return getHeight(rootPtr);
+}
+
+/**
+ * @brief Finds the number of nodes in the tree.
+ * 
+ * @tparam T The type of data in the tree.
+ * @param nodePtr The node to check heights from.
+ * @return int The number of nodes in the tree.
+ */
+template <typename T>
+int BinarySearchTree<T>::getNumberOfNodes(BinaryNode<T>* nodePtr) const{
+    if (nodePtr == nullptr) return 0; // might need to return 1 instead idk
+    else{ // not sure if this returns double the number of nodes in the tree
+        int leftNodes = 1 + getNumberOfNodes(nodePtr->getLeftChildPtr());
+        int rightNodes = 1 + getNumberOfNodes(nodePtr->getRightChildPtr());
+        return leftNodes + rightNodes;
+        // int leftNodes = getNumberOfNodes(nodePtr->getLeftChildPtr());
+        // int rightNodes = getNumberOfNodes(nodePtr->getRightChildPtr());
+        // return 1 + leftNodes + rightNodes;
     }
 }
 
@@ -68,15 +101,7 @@ int BinarySearchTree<T>::getHeight() const{
  */
 template <typename T>
 int BinarySearchTree<T>::getNumberOfNodes() const{
-    if (rootPtr == nullptr) return 0; // might need to return 1 instead idk
-    else{ // not sure if this returns double the number of nodes in the tree
-        int leftNodes = 1 + getNumberOfNodes(rootPtr->getLeftChildPtr());
-        int rightNodes = 1 + getNumberOfNodes(rootPtr->getRightChildPtr());
-        return leftNodes + rightNodes;
-        // int leftNodes = getNumberOfNodes(rootPtr->getLeftChildPtr());
-        // int rightNodes = getNumberOfNodes(rootPtr->getRightChildPtr());
-        // return 1 + leftNodes + rightNodes;
-    }
+    return getNumberOfNodes(rootPtr);
 }
 
 template <typename T>
@@ -267,7 +292,9 @@ BinaryNode<T>* BinarySearchTree<T>::removeNode(BinaryNode<T>* nodePtr){
     // and replace the node to be removed with that smallest value
     // afterwards, it should remove the smallest value in the right subtree (which is now a duplicate)
     // Properties: the smallest value in a right subtree should have no left nodes. The only possible nodes for a smallest value in a subtree is right nodes.
-        nodeToConnectPtr = removeLeftmostNode(nodePtr->getRightChildPtr(), nodePtr->getItem());
+        T inorderSuccessor;
+        nodeToConnectPtr = removeLeftmostNode(nodePtr->getRightChildPtr(), inorderSuccessor);
+        nodePtr->setItem(inorderSuccessor);
         return nodeToConnectPtr;
         // this modified nodePtr instead of deleting it
 

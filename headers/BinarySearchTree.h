@@ -14,6 +14,8 @@ protected:
     BinaryNode<T>* removeNode(BinaryNode<T>* nodePtr); //
     BinaryNode<T>* removeLeftmostNode(BinaryNode<T>* subTreeRootPtr, T& inorderSuccessor); //
     BinaryNode<T>* findNode(BinaryNode<T>* nodePtr, const T& target) const; //
+    int getHeight(BinaryNode<T>* nodePtr) const;
+    int getNumberOfNodes(BinaryNode<T>* nodePtr) const;
 
 public:
     BinarySearchTree();
