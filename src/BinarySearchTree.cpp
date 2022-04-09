@@ -58,14 +58,22 @@ int BinarySearchTree<T>::getHeight() const{
 }
 
 /**
- * @brief 
+ * @brief Finds the number of nodes in the tree.
  * 
- * @tparam T 
- * @return int 
+ * @tparam T The type of data in the tree.
+ * @return int The number of nodes in the tree.
  */
 template <typename T>
 int BinarySearchTree<T>::getNumberOfNodes() const{
-    
+    if (rootPtr == nullptr) return 0; // might need to return 1 instead idk
+    else{ // not sure if this returns double the number of nodes in the tree
+        int leftNodes = 1 + getNumberOfNodes(rootPtr->getLeftChildPtr());
+        int rightNodes = 1 + getNumberOfNodes(rootPtr->getRightChildPtr());
+        return leftNodes + rightNodes;
+        // int leftNodes = getNumberOfNodes(rootPtr->getLeftChildPtr());
+        // int rightNodes = getNumberOfNodes(rootPtr->getRightChildPtr());
+        // return 1 + leftNodes + rightNodes;
+    }
 }
 
 template <typename T>
