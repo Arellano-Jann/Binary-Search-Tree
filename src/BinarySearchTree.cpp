@@ -109,6 +109,12 @@ bool BinarySearchTree<T>::isEmpty() const{
 
 // Traversals
 
+// Overloaded the function so that it only has one parameter
+// template <typename T>
+// void BinarySearchTree<T>::preorderTraverse(void visit(T&)) const{
+//     preorderTraverse(visit, rootPtr);
+// }
+
 /**
  * @brief Recursively traverses the tree in the preorder which means "Node, Left, Right". While traversing, the passed in visit function is called on each node.
  * 
