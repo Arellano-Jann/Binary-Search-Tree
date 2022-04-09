@@ -10,7 +10,8 @@ template <typename T>
 bool BinarySearchTree<T>::add(const T& newEntry){
     if(!contains(newEntry)){
         BinaryNode<T>* newNodePtr = new BinaryNode<T>(newEntry);
-        rootPtr = placeNode(rootPtr, newNodePtr);
+        // rootPtr = placeNode(rootPtr, newNodePtr);
+        placeNode(rootPtr, newNodePtr);
         return true;
     }
     return false;
@@ -21,7 +22,9 @@ template <typename T>
 bool BinarySearchTree<T>::remove(const T& anEntry){
     bool result = false;
     if(contains(anEntry)){
-        rootPtr = removeValue(rootPtr, anEntry, result); // doesnt make sense right now. it sets the root ptr to be the removed values subTree?
+        // rootPtr = removeValue(rootPtr, anEntry, result); // doesnt make sense right now. it sets the root ptr to be the removed values subTree?
+        placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
+
     }
     return result;
 }
@@ -259,30 +262,34 @@ BinaryNode<T>* BinarySearchTree<T>::removeNode(BinaryNode<T>* nodePtr){
         nodeToConnectPtr = nodePtr->getLeftChildPtr();
     }
     else{ // if there is 2 children, this executes
-    // this should find the go to the right side of the nodeTree
+    // this should go to the right side of the nodeTree
     // and find the smallest value in the right subtree
     // and replace the node to be removed with that smallest value
     // afterwards, it should remove the smallest value in the right subtree (which is now a duplicate)
     // Properties: the smallest value in a right subtree should have no left nodes. The only possible nodes for a smallest value in a subtree is right nodes.
-        T inorderSuccessor = findLeftmost(nodePtr->getRightChildPtr()); // there is no findLeftMost method?
-        nodePtr->setItem(inorderSuccessor);
-        nodePtr->setRightChildPtr(removeLeftmostNode(nodePtr->getRightChildPtr(), inorderSuccessor)); // wtf does this do?
+        nodeToConnectPtr = removeLeftmostNode(nodePtr->getRightChildPtr(), nodePtr->getItem());
+        return nodeToConnectPtr;
+        // this modified nodePtr instead of deleting it
+
+        // T inorderSuccessor = findLeftmost(nodePtr->getRightChildPtr()); // there is no findLeftMost method?
+        // nodePtr->setItem(inorderSuccessor);
+        // nodePtr->setRightChildPtr(removeLeftmostNode(nodePtr->getRightChildPtr(), inorderSuccessor)); // wtf does this do?
     }
     delete nodePtr;
-    return nodeToConnectPtr; // return subtree if 0 or 1 child
+    return nodeToConnectPtr; // return subtree
 }
 
 /**
- * @brief Finds the least value in the tree using subTreeRootPtr as the root. It then deletes the least value while keeping the structure in tact. This is a helper method to removeNode.
+ * @brief Finds the least value in the tree using subTreeRootPtr as the root. It saves the least value to inorderSuccessor. It then deletes the least value while keeping the structure in tact. This is a helper method to removeNode.
  * @details 1. If subTreeRootPtr has a left child, execute recursively until the least value is found. \n
  *        1b. Set as subTreeRootPtr \n 
  *        2. Set the inorderSuccessor to be the least value. \n
- *        3. Delete the subTreeRootPtr using removeNode method. This method returns the right subtree of subTreeRootPtr since subTreeRootPtr should not have a left subtree. \n
+ *        3. Delete the subTreeRootPtr (which is the leastmost value) using removeNode method. This method returns the right subtree of subTreeRootPtr since subTreeRootPtr should not have a left subtree. \n
  *        4. Return the right subtree to use later for connections.
  * 
  * @tparam T The type of the data in the tree.
  * @param subTreeRootPtr The current root of the subTree.
- * @param inorderSuccessor The least value. Passed in by reference.
+ * @param inorderSuccessor The value to be changed to the least value. Passed in by reference.
  * @return BinaryNode<T>* Returns the right subtree of the leftmost node.
  */
 template <typename T>
