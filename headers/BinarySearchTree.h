@@ -28,9 +28,9 @@ public:
     bool contains(const T& anEntry) const override; //
     bool isEmpty() const override; //
 
-    void preorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const; // --
-    void inorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const; // --
-    void postorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const; // --
+    void preorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const; // -
+    void inorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const; // -
+    void postorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const; // -
 
     ~BinarySearchTree(); //
 
