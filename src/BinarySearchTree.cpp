@@ -152,7 +152,8 @@ bool BinarySearchTree<T>::isEmpty() const{
  */
 template <typename T>
 void BinarySearchTree<T>::preorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const{
-    visit(nodePtr->getItem());
+    T item = nodePtr->getItem();
+    visit(item);
     if (nodePtr->getLeftChildPtr() != nullptr){
         preorderTraverse(visit, nodePtr->getLeftChildPtr());
     }
@@ -173,7 +174,8 @@ void BinarySearchTree<T>::inorderTraverse(void visit(T&), BinaryNode<T>* nodePtr
     if (nodePtr->getLeftChildPtr() != nullptr){
         preorderTraverse(visit, nodePtr->getLeftChildPtr());
     }
-    visit(nodePtr->getItem());
+    T item = nodePtr->getItem();
+    visit(item);
     if (nodePtr->getRightChildPtr() != nullptr){
         preorderTraverse(visit, nodePtr->getRightChildPtr());
     }
@@ -194,7 +196,8 @@ void BinarySearchTree<T>::postorderTraverse(void visit(T&), BinaryNode<T>* nodeP
     if (nodePtr->getRightChildPtr() != nullptr){
         preorderTraverse(visit, nodePtr->getRightChildPtr());
     }
-    visit(nodePtr->getItem());
+    T item = nodePtr->getItem();
+    visit(item);
 }
 
 template <typename T>
