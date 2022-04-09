@@ -109,19 +109,58 @@ bool BinarySearchTree<T>::isEmpty() const{
 
 // Traversals
 
+/**
+ * @brief Recursively traverses the tree in the preorder which means "Node, Left, Right". While traversing, the passed in visit function is called on each node.
+ * 
+ * @tparam T The type of data in the tree.
+ * @param visit The passed in function to be called on each node's data/item.
+ * @param nodePtr The node of the tree to be visited.
+ */
 template <typename T>
-void BinarySearchTree<T>::preorderTraverse(void visit(T&)) const{
-    
+void BinarySearchTree<T>::preorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const{
+    visit(nodePtr->getItem());
+    if (nodePtr->getLeftChildPtr() != nullptr){
+        preorderTraverse(visit, nodePtr->getLeftChildPtr());
+    }
+    if (nodePtr->getRightChildPtr() != nullptr){
+        preorderTraverse(visit, nodePtr->getRightChildPtr());
+    }
 }
 
+/**
+ * @brief Recursively traverses the tree in the inorder which means "Left, Node, Right". While traversing, the passed in visit function is called on each node.
+ * 
+ * @tparam T The type of data in the tree.
+ * @param visit The passed in function to be called on each node's data/item.
+ * @param nodePtr The node of the tree to be visited.
+ */
 template <typename T>
-void BinarySearchTree<T>::inorderTraverse(void visit(T&)) const{
-
+void BinarySearchTree<T>::inorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const{
+    if (nodePtr->getLeftChildPtr() != nullptr){
+        preorderTraverse(visit, nodePtr->getLeftChildPtr());
+    }
+    visit(nodePtr->getItem());
+    if (nodePtr->getRightChildPtr() != nullptr){
+        preorderTraverse(visit, nodePtr->getRightChildPtr());
+    }
 }
 
+/**
+ * @brief Recursively traverses the tree in the postorder which means "Left, Right, Node". While traversing, the passed in visit function is called on each node.
+ * 
+ * @tparam T The type of data in the tree.
+ * @param visit The passed in function to be called on each node's data/item.
+ * @param nodePtr The node of the tree to be visited.
+ */
 template <typename T>
-void BinarySearchTree<T>::postorderTraverse(void visit(T&)) const{
-
+void BinarySearchTree<T>::postorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const{
+    if (nodePtr->getLeftChildPtr() != nullptr){
+        preorderTraverse(visit, nodePtr->getLeftChildPtr());
+    }
+    if (nodePtr->getRightChildPtr() != nullptr){
+        preorderTraverse(visit, nodePtr->getRightChildPtr());
+    }
+    visit(nodePtr->getItem());
 }
 
 
