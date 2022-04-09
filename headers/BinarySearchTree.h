@@ -1,5 +1,5 @@
 #pragma once
-#define BINARY_SEARCH_TREE_H
+#define BINARYSEARCHTREE_H
 
 #include "TreeInterface.h"
 #include "BinaryNode.h"

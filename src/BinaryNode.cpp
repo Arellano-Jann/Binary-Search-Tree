@@ -33,5 +33,5 @@ BinaryNode<T>* BinaryNode<T>::getRightChildPtr() const{ return rightChildPtr; }
 
 template <typename T>
 bool BinaryNode<T>::isLeaf() const{ 
-    return (leftChildPtr == nullptr && rightChildPtr == nullPtr);
+    return (leftChildPtr == nullptr && rightChildPtr == nullptr);
 }
