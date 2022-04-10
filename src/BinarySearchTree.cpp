@@ -22,9 +22,9 @@ template <typename T>
 bool BinarySearchTree<T>::remove(const T& anEntry){
     bool result = false;
     if(contains(anEntry)){
-        // rootPtr = removeValue(rootPtr, anEntry, result); // doesnt make sense right now. it sets the root ptr to be the removed values subTree?
+        rootPtr = removeValue(rootPtr, anEntry, result); // doesnt make sense right now. it sets the root ptr to be the removed values subTree? // but this doesn't seg fault
         // placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
-        rootPtr = placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
+        // rootPtr = placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
 
     }
     return result;
@@ -40,7 +40,7 @@ void BinarySearchTree<T>::clear(){
 
 template <typename T>
 BinarySearchTree<T>::~BinarySearchTree(){ 
-    // clear(); 
+    clear(); 
     }
 
 
@@ -137,12 +137,6 @@ bool BinarySearchTree<T>::isEmpty() const{
 
 
 // Traversals
-
-// Overloaded the function so that it only has one parameter
-// template <typename T>
-// void BinarySearchTree<T>::preorderTraverse(void visit(T&)) const{
-//     preorderTraverse(visit, rootPtr);
-// }
 
 /**
  * @brief Recursively traverses the tree in the preorder which means "Node, Left, Right". While traversing, the passed in visit function is called on each node.
