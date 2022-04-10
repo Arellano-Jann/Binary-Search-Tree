@@ -23,7 +23,8 @@ bool BinarySearchTree<T>::remove(const T& anEntry){
     bool result = false;
     if(contains(anEntry)){
         // rootPtr = removeValue(rootPtr, anEntry, result); // doesnt make sense right now. it sets the root ptr to be the removed values subTree?
-        placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
+        // placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
+        rootPtr = placeNode(rootPtr, removeValue(rootPtr, anEntry, result));
 
     }
     return result;
