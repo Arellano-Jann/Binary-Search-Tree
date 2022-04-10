@@ -10,8 +10,8 @@ template <typename T>
 bool BinarySearchTree<T>::add(const T& newEntry){
     if(!contains(newEntry)){
         BinaryNode<T>* newNodePtr = new BinaryNode<T>(newEntry);
-        // rootPtr = placeNode(rootPtr, newNodePtr);
-        placeNode(rootPtr, newNodePtr);
+        rootPtr = placeNode(rootPtr, newNodePtr);
+        // placeNode(rootPtr, newNodePtr);
         return true;
     }
     return false;
@@ -71,13 +71,10 @@ int BinarySearchTree<T>::getHeight(BinaryNode<T>* nodePtr) const{
 template <typename T>
 int BinarySearchTree<T>::getNumberOfNodes(BinaryNode<T>* nodePtr) const{
     if (nodePtr == nullptr) return 0; // might need to return 1 instead idk
-    else{ // not sure if this returns double the number of nodes in the tree
-        int leftNodes = 1 + getNumberOfNodes(nodePtr->getLeftChildPtr());
-        int rightNodes = 1 + getNumberOfNodes(nodePtr->getRightChildPtr());
-        return leftNodes + rightNodes;
-        // int leftNodes = getNumberOfNodes(nodePtr->getLeftChildPtr());
-        // int rightNodes = getNumberOfNodes(nodePtr->getRightChildPtr());
-        // return 1 + leftNodes + rightNodes;
+    else{
+        int leftNodes = getNumberOfNodes(nodePtr->getLeftChildPtr());
+        int rightNodes = getNumberOfNodes(nodePtr->getRightChildPtr());
+        return 1 + leftNodes + rightNodes; // each node is counted as 1
     }
 }
 

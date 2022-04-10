@@ -23,7 +23,7 @@ template <typename T>
 void BinaryNode<T>::setRightChildPtr(BinaryNode<T>* newRightChildPtr){ rightChildPtr = newRightChildPtr; }
 
 template <typename T>
-T BinaryNode<T>::getItem() const{ return item; }
+ T BinaryNode<T>::getItem() const{ return item; }
 
 template <typename T>
 BinaryNode<T>* BinaryNode<T>::getLeftChildPtr() const{ return leftChildPtr; }
