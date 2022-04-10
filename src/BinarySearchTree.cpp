@@ -6,6 +6,14 @@ BinarySearchTree<T>::BinarySearchTree()
 {}
 
 // adds the node recursively
+/**
+ * @brief Adds a value to the tree. If the value is already in the tree, it will not be added again. \n Uses placeNode as a helper function.
+ * 
+ * @tparam T The type of the value to be added.
+ * @param newEntry The value to be added.
+ * @return true The value was added to the tree.
+ * @return false The value was not added to the tree.
+ */
 template <typename T>
 bool BinarySearchTree<T>::add(const T& newEntry){
     if(!contains(newEntry)){
@@ -14,7 +22,7 @@ bool BinarySearchTree<T>::add(const T& newEntry){
         // placeNode(rootPtr, newNodePtr);
         return true;
     }
-    std::cout << "The node already exists in the tree." << " Node is: " << newEntry << std::endl;
+    // std::cout << "The node already exists in the tree." << " Node is: " << newEntry << std::endl;
     return false;
 }
 

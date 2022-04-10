@@ -4,17 +4,16 @@
 
 int main(){
     BinarySearchTree<int> tree;
-    int genny = 5;
+    int genny = 138; // 138 generates 100 unique values in an array of size 100
     NumberGenerator gen(genny);
-    std::cout << "Generated array: ";
-    for (int i = 0; i < genny; i++){
-        std::cout << gen.getArray()[i] << " ";
-    }
+    // std::cout << "Generated array: ";
+    // for (int i = 0; i < genny; i++){
+    //     std::cout << gen.getArray()[i] << " ";
+    // }
     std::cout << std::endl;
     tree.add(50);
     for (int i = 0; i < genny; i++){
         tree.add(gen.getArray()[i]);
-        tree.add(i);
     }
     tree.add(2);
     std::cout << "Tree height: " << tree.getHeight() << std::endl;
