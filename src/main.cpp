@@ -4,13 +4,15 @@
 
 int main(){
     BinarySearchTree<int> tree;
-    NumberGenerator gen(100);
+    int genny = 5;
+    NumberGenerator gen(genny);
     std::cout << "Generated array: ";
-    for (int i = 0; i < 100; i++){
+    for (int i = 0; i < genny; i++){
         std::cout << gen.getArray()[i] << " ";
     }
-    tree.add(1);
-    for (int i = 0; i < 100; i++){
+    std::cout << std::endl;
+    tree.add(50);
+    for (int i = 0; i < genny; i++){
         tree.add(gen.getArray()[i]);
         tree.add(i);
     }
@@ -25,5 +27,6 @@ int main(){
     tree.inorderTraverse( [](int& i){ std::cout << i << " "; } );
     std::cout << std::endl << "postorderTraverse" << std::endl;
     tree.postorderTraverse( [](int& i){ std::cout << i << " "; } );
+    std::cout << std::endl;
     return 0;
 }

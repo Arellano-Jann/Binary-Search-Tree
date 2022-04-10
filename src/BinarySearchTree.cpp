@@ -14,6 +14,7 @@ bool BinarySearchTree<T>::add(const T& newEntry){
         // placeNode(rootPtr, newNodePtr);
         return true;
     }
+    std::cout << "The node already exists in the tree." << " Node is: " << newEntry << std::endl;
     return false;
 }
 
@@ -167,12 +168,12 @@ void BinarySearchTree<T>::preorderTraverse(void visit(T&), BinaryNode<T>* nodePt
 template <typename T>
 void BinarySearchTree<T>::inorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const{
     if (nodePtr->getLeftChildPtr() != nullptr){
-        preorderTraverse(visit, nodePtr->getLeftChildPtr());
+        inorderTraverse(visit, nodePtr->getLeftChildPtr());
     }
     T item = nodePtr->getItem();
     visit(item);
     if (nodePtr->getRightChildPtr() != nullptr){
-        preorderTraverse(visit, nodePtr->getRightChildPtr());
+        inorderTraverse(visit, nodePtr->getRightChildPtr());
     }
 }
 
@@ -186,10 +187,10 @@ void BinarySearchTree<T>::inorderTraverse(void visit(T&), BinaryNode<T>* nodePtr
 template <typename T>
 void BinarySearchTree<T>::postorderTraverse(void visit(T&), BinaryNode<T>* nodePtr) const{
     if (nodePtr->getLeftChildPtr() != nullptr){
-        preorderTraverse(visit, nodePtr->getLeftChildPtr());
+        postorderTraverse(visit, nodePtr->getLeftChildPtr());
     }
     if (nodePtr->getRightChildPtr() != nullptr){
-        preorderTraverse(visit, nodePtr->getRightChildPtr());
+        postorderTraverse(visit, nodePtr->getRightChildPtr());
     }
     T item = nodePtr->getItem();
     visit(item);
@@ -230,13 +231,14 @@ template <typename T>
 BinaryNode<T>* BinarySearchTree<T>::placeNode(BinaryNode<T>* subTreeRootPtr, BinaryNode<T>* newNodePtr){
     if(subTreeRootPtr == nullptr){ // places node in subTreeRootPtr if subTree is empty
         subTreeRootPtr = newNodePtr;
+        // std::cout << "Root in empty subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;
     }
     else if(newNodePtr->getItem() < subTreeRootPtr->getItem()){ // places node in left subtree if newNode is less than subTreeRootPtr
-        subTreeRootPtr->setLeftChildPtr(placeNode(subTreeRootPtr->getLeftChildPtr(), newNodePtr));
+        // std::cout << "Left subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;subTreeRootPtr->setLeftChildPtr(placeNode(subTreeRootPtr->getLeftChildPtr(), newNodePtr));
     }
     else{ // places node in right subtree if newNode is greater than to subTreeRootPtr
     // this will never be equal to the subTreeRootPtr because this method is only used in the add method and the add method has a check if the node is in the tree
-        subTreeRootPtr->setRightChildPtr(placeNode(subTreeRootPtr->getRightChildPtr(), newNodePtr));
+        // std::cout << "Right subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;subTreeRootPtr->setRightChildPtr(placeNode(subTreeRootPtr->getRightChildPtr(), newNodePtr));
     }
     return subTreeRootPtr;
 }
