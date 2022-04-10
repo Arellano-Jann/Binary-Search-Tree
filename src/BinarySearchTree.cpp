@@ -234,11 +234,13 @@ BinaryNode<T>* BinarySearchTree<T>::placeNode(BinaryNode<T>* subTreeRootPtr, Bin
         // std::cout << "Root in empty subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;
     }
     else if(newNodePtr->getItem() < subTreeRootPtr->getItem()){ // places node in left subtree if newNode is less than subTreeRootPtr
-        // std::cout << "Left subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;subTreeRootPtr->setLeftChildPtr(placeNode(subTreeRootPtr->getLeftChildPtr(), newNodePtr));
+        // std::cout << "Left subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;
+        subTreeRootPtr->setLeftChildPtr(placeNode(subTreeRootPtr->getLeftChildPtr(), newNodePtr));
     }
     else{ // places node in right subtree if newNode is greater than to subTreeRootPtr
     // this will never be equal to the subTreeRootPtr because this method is only used in the add method and the add method has a check if the node is in the tree
-        // std::cout << "Right subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;subTreeRootPtr->setRightChildPtr(placeNode(subTreeRootPtr->getRightChildPtr(), newNodePtr));
+        // std::cout << "Right subtree. " << "Node is: " << newNodePtr->getItem() << std::endl;
+        subTreeRootPtr->setRightChildPtr(placeNode(subTreeRootPtr->getRightChildPtr(), newNodePtr));
     }
     return subTreeRootPtr;
 }
