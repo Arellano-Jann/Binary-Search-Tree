@@ -32,13 +32,16 @@ bool BinarySearchTree<T>::remove(const T& anEntry){
 
 template <typename T>
 void BinarySearchTree<T>::clear(){
-    while(!isEmpty()){
-        remove(getRootData());
-    }
+    // while(!isEmpty()){
+    //     remove(getRootData());
+    // }
+    while(remove(getRootData()));
 }
 
 template <typename T>
-BinarySearchTree<T>::~BinarySearchTree(){ clear(); }
+BinarySearchTree<T>::~BinarySearchTree(){ 
+    // clear(); 
+    }
 
 
 
