@@ -32,5 +32,13 @@ int main(){
     std::cout << std::endl << "postorderTraverse" << std::endl;
     tree.postorderTraverse( [](int& i){ std::cout << i << " "; } );
     std::cout << std::endl;
+
+    tree.remove(2);
+    std::cout  << std::endl << "Tree contains 2: " << std::boolalpha << tree.contains(2) << std::endl;
+    std::cout << "inorderTraverse" << std::endl;
+    tree.inorderTraverse( [](int& i){ std::cout << i << " "; } );
+
+    tree.clear();
+    std::cout  << std::endl << "Tree is empty: " << std::boolalpha << tree.isEmpty() << std::endl;
     return 0;
 }
