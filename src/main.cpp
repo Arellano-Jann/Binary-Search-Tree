@@ -4,6 +4,8 @@
 
 int main(){
     BinarySearchTree<int> tree;
+    std::cout << "Tree is empty: " << std::boolalpha << tree.isEmpty() << std::endl;
+    std::cout << "Tree contains 50: " << std::boolalpha << tree.contains(50) << std::endl;
     int genny = 138; // 138 generates 100 unique values in an array of size 100
     NumberGenerator gen(genny);
     // std::cout << "Generated array: ";
@@ -19,6 +21,9 @@ int main(){
     std::cout << "Tree height: " << tree.getHeight() << std::endl;
     std::cout << "Tree size: " << tree.getNumberOfNodes() << std::endl;
     std::cout << "Tree root data: " << tree.getRootData() << std::endl;
+    std::cout << "Tree contains 50: " << std::boolalpha << tree.contains(50) << std::endl;
+    std::cout << "Tree contains 2: " << std::boolalpha << tree.contains(2) << std::endl;
+    std::cout << "Tree is empty: " << std::boolalpha << tree.isEmpty() << std::endl;
     
     std::cout << "preorderTraverse" << std::endl;
     tree.preorderTraverse( [](int& i){ std::cout << i << " "; } );
