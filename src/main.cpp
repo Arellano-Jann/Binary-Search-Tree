@@ -18,7 +18,7 @@ int main(){
     // for (int i = 0; i < genny; i++){
     //     std::cout << gen.getArray()[i] << " ";
     // }
-    std::cout << std::endl;
+    std::cout << "This has not seg faulted. Hurray!" << std::endl;
     for (int i = 0; i < genny; i++){
         tree.add(gen.getArray()[i]);
     }
