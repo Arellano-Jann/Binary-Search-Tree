@@ -1,0 +1,597 @@
+\hypertarget{classBinarySearchTree}{}\doxysection{Binary\+Search\+Tree$<$ T $>$ Class Template Reference}
+\label{classBinarySearchTree}\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Binary\+Search\+Tree.\+h$>$}
+
+
+
+Inheritance diagram for Binary\+Search\+Tree$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{d9/d58/classBinarySearchTree__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Binary\+Search\+Tree$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{d6/d52/classBinarySearchTree__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBinarySearchTree_a3b0cc4709a1f77edc8ecedd5553d44cf}{Binary\+Search\+Tree}} ()
+\item 
+bool \mbox{\hyperlink{classBinarySearchTree_a7ff282a75404834959092d035a8a2da3}{add}} (const T \&new\+Entry) override
+\begin{DoxyCompactList}\small\item\em Adds a value to the tree. If the value is already in the tree, it will not be added again. ~\newline
+ Uses place\+Node as a helper function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBinarySearchTree_a7d7a1a4492434dfd315fa91db8ccee68}{remove}} (const T \&an\+Entry) override
+\item 
+void \mbox{\hyperlink{classBinarySearchTree_a2df4aac6ff28ca6925c5047b9094d534}{clear}} () override
+\item 
+int \mbox{\hyperlink{classBinarySearchTree_a3776d70629c628184eb55aa1572796b1}{get\+Height}} () const override
+\begin{DoxyCompactList}\small\item\em Find\textquotesingle{}s the longest edge path from the root to a leaf. Overloaded function to \mbox{\hyperlink{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}{get\+Height()}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBinarySearchTree_a2296f4764c80ee24aece984186c76f94}{get\+Number\+Of\+Nodes}} () const override
+\begin{DoxyCompactList}\small\item\em Finds the number of nodes in the tree. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classBinarySearchTree_ad35926748cef55dc86761e9ba702261d}{get\+Root\+Data}} () const override
+\item 
+T \mbox{\hyperlink{classBinarySearchTree_ab632f575ce591ccbde84fa621f24e339}{get\+Entry}} (const T \&an\+Entry) const override
+\item 
+bool \mbox{\hyperlink{classBinarySearchTree_a22c5ffef5bb4f8fe288b99380dfca835}{contains}} (const T \&an\+Entry) const override
+\item 
+bool \mbox{\hyperlink{classBinarySearchTree_a2bc158ccdf2dc1c7af7c599eb2584cb4}{is\+Empty}} () const override
+\item 
+void \mbox{\hyperlink{classBinarySearchTree_a3a6ae0f0b1883b2130d476c8f8769e09}{preorder\+Traverse}} (void visit(T \&)) const
+\item 
+void \mbox{\hyperlink{classBinarySearchTree_acd53aed4f6d199fb40c1cacd9193736e}{inorder\+Traverse}} (void visit(T \&)) const
+\item 
+void \mbox{\hyperlink{classBinarySearchTree_a6f1561cf932c7211af5e382d7a28cd3a}{postorder\+Traverse}} (void visit(T \&)) const
+\item 
+\mbox{\hyperlink{classBinarySearchTree_a3959625f088828c86e49bf1b63f4cbdf}{$\sim$\+Binary\+Search\+Tree}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree_a4ab54d58c24fd88280365df7ccbbb595}{place\+Node}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$sub\+Tree\+Root\+Ptr, \mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$new\+Node\+Ptr)
+\begin{DoxyCompactList}\small\item\em Recursively find the place to insert the node in the tree. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree_a11e3fc23b2721ff85a10debae01e9282}{remove\+Value}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$sub\+Tree\+Root\+Ptr, const T target, bool \&success)
+\begin{DoxyCompactList}\small\item\em Recursively searches for the target in the sub\+Tree and removes it if found. This is a helper method to remove. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree_a84891f4be38610572dc2743da6dff533}{remove\+Node}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr)
+\begin{DoxyCompactList}\small\item\em Removes node\+Ptr and returns the children of node\+Ptr. It returns this value to connect to the upper tree. This is a helper method to remove\+Value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree_aee511f3f53a5d5c2adb612fbf601cb4b}{remove\+Leftmost\+Node}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$sub\+Tree\+Root\+Ptr, T \&inorder\+Successor)
+\begin{DoxyCompactList}\small\item\em Finds the least value in the tree using sub\+Tree\+Root\+Ptr as the root. It saves the least value to inorder\+Successor. It then deletes the least value while keeping the structure in tact. This is a helper method to remove\+Node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree_a68ec526dfe7f81954ff62df456ee8517}{find\+Node}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr, const T \&target) const
+\begin{DoxyCompactList}\small\item\em Recursively finds the node in node\+Ptr with the data value of target. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}{get\+Height}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr) const
+\begin{DoxyCompactList}\small\item\em Find\textquotesingle{}s the longest edge path from the root to a leaf. Overloaded function to \mbox{\hyperlink{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}{get\+Height()}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBinarySearchTree_a6bc21fd640ab6ae98b65c322519eb99a}{get\+Number\+Of\+Nodes}} (\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr) const
+\begin{DoxyCompactList}\small\item\em Finds the number of nodes in the tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBinarySearchTree_a0ded577e0b47f04d0e334fdf8b521743}{preorder\+Traverse}} (void visit(T \&), \mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr) const
+\begin{DoxyCompactList}\small\item\em Recursively traverses the tree in the preorder which means \char`\"{}\+Node, Left, Right\char`\"{}. While traversing, the passed in visit function is called on each node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBinarySearchTree_ae569fa0db122bc48e12387a34604a840}{inorder\+Traverse}} (void visit(T \&), \mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr) const
+\begin{DoxyCompactList}\small\item\em Recursively traverses the tree in the inorder which means \char`\"{}\+Left, Node, Right\char`\"{}. While traversing, the passed in visit function is called on each node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBinarySearchTree_a6ea97dcd88e8bb137aa0617513b781a8}{postorder\+Traverse}} (void visit(T \&), \mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$node\+Ptr) const
+\begin{DoxyCompactList}\small\item\em Recursively traverses the tree in the postorder which means \char`\"{}\+Left, Right, Node\char`\"{}. While traversing, the passed in visit function is called on each node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBinarySearchTree_a3b0cc4709a1f77edc8ecedd5553d44cf}\label{classBinarySearchTree_a3b0cc4709a1f77edc8ecedd5553d44cf}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!BinarySearchTree@{BinarySearchTree}}
+\index{BinarySearchTree@{BinarySearchTree}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BinarySearchTree()}{BinarySearchTree()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::\mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}}
+
+\mbox{\Hypertarget{classBinarySearchTree_a3959625f088828c86e49bf1b63f4cbdf}\label{classBinarySearchTree_a3959625f088828c86e49bf1b63f4cbdf}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!````~BinarySearchTree@{$\sim$BinarySearchTree}}
+\index{````~BinarySearchTree@{$\sim$BinarySearchTree}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$BinarySearchTree()}{~BinarySearchTree()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBinarySearchTree_a7ff282a75404834959092d035a8a2da3}\label{classBinarySearchTree_a7ff282a75404834959092d035a8a2da3}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!add@{add}}
+\index{add@{add}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const T \&}]{new\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a value to the tree. If the value is already in the tree, it will not be added again. ~\newline
+ Uses place\+Node as a helper function. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the value to be added. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Entry} & The value to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The value was added to the tree. 
+
+false The value was not added to the tree. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTreeInterface_a9f726be9d2f28732f08473fb814fd287}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a2df4aac6ff28ca6925c5047b9094d534}\label{classBinarySearchTree_a2df4aac6ff28ca6925c5047b9094d534}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!clear@{clear}}
+\index{clear@{clear}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::clear\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTreeInterface_aaa44b440e88b3f9789be75fa57a55546}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a22c5ffef5bb4f8fe288b99380dfca835}\label{classBinarySearchTree_a22c5ffef5bb4f8fe288b99380dfca835}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!contains@{contains}}
+\index{contains@{contains}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{const T \&}]{an\+Entry }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTreeInterface_a5ae5f084ef1012c1742815c9d5345a65}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a68ec526dfe7f81954ff62df456ee8517}\label{classBinarySearchTree_a68ec526dfe7f81954ff62df456ee8517}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!findNode@{findNode}}
+\index{findNode@{findNode}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findNode()}{findNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::find\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr,  }\item[{const T \&}]{target }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Recursively finds the node in node\+Ptr with the data value of target. 
+
+
+\begin{DoxyEnumerate}
+\item If node\+Ptr is nullptr, return nullptr for not found. ~\newline
+
+\begin{DoxyEnumerate}
+\item If node\+Ptr is the target, return node\+Ptr. ~\newline
+
+\item If node\+Ptr is greater than target, execute recursively on the left child. This is the left child because of the equality system of a binary tree. ~\newline
+
+\item If node\+Ptr is less than target, execute recursively on the right child. ~\newline
+
+\item Repeat recursively until the target is found.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Ptr} & \\
+\hline
+{\em target} & Data value to be found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary\+Node$<$\+T$>$$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBinarySearchTree_ab632f575ce591ccbde84fa621f24e339}\label{classBinarySearchTree_ab632f575ce591ccbde84fa621f24e339}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!getEntry@{getEntry}}
+\index{getEntry@{getEntry}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getEntry()}{getEntry()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::get\+Entry (\begin{DoxyParamCaption}\item[{const T \&}]{an\+Entry }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTreeInterface_a0631b342bca4eb20c7311fb61b9fbdc9}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a3776d70629c628184eb55aa1572796b1}\label{classBinarySearchTree_a3776d70629c628184eb55aa1572796b1}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::get\+Height\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Find\textquotesingle{}s the longest edge path from the root to a leaf. Overloaded function to \mbox{\hyperlink{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}{get\+Height()}}. 
+
+Checks the left and right heights of the root. This recursively returns the longest path by checking each subsequent subtree\textquotesingle{}s left and right heights.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+int The maximum height of the tree starting from the root\+Ptr. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTreeInterface_a7dbb9b46c8050534afcad0eb017aa611}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}\label{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::get\+Height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Find\textquotesingle{}s the longest edge path from the root to a leaf. Overloaded function to \mbox{\hyperlink{classBinarySearchTree_a84be8769ff7b7f0e51cd5582ca61046e}{get\+Height()}}. 
+
+Checks the left and right heights of the node. This recursively returns the longest path by checking each subsequent subtree\textquotesingle{}s left and right heights.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Ptr} & The node to check heights from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The maximum height of the tree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBinarySearchTree_a2296f4764c80ee24aece984186c76f94}\label{classBinarySearchTree_a2296f4764c80ee24aece984186c76f94}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!getNumberOfNodes@{getNumberOfNodes}}
+\index{getNumberOfNodes@{getNumberOfNodes}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumberOfNodes()}{getNumberOfNodes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::get\+Number\+Of\+Nodes\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Finds the number of nodes in the tree. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+int The number of nodes in the tree. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTreeInterface_a75c81fade32facbc582f36346e2476d3}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a6bc21fd640ab6ae98b65c322519eb99a}\label{classBinarySearchTree_a6bc21fd640ab6ae98b65c322519eb99a}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!getNumberOfNodes@{getNumberOfNodes}}
+\index{getNumberOfNodes@{getNumberOfNodes}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumberOfNodes()}{getNumberOfNodes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::get\+Number\+Of\+Nodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Finds the number of nodes in the tree. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Ptr} & The node to check heights from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The number of nodes in the tree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBinarySearchTree_ad35926748cef55dc86761e9ba702261d}\label{classBinarySearchTree_ad35926748cef55dc86761e9ba702261d}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!getRootData@{getRootData}}
+\index{getRootData@{getRootData}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getRootData()}{getRootData()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::get\+Root\+Data\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTreeInterface_a8a2e904db4d41296b0872b445d2bad69}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_acd53aed4f6d199fb40c1cacd9193736e}\label{classBinarySearchTree_acd53aed4f6d199fb40c1cacd9193736e}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!inorderTraverse@{inorderTraverse}}
+\index{inorderTraverse@{inorderTraverse}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inorderTraverse()}{inorderTraverse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::inorder\+Traverse (\begin{DoxyParamCaption}\item[{void }]{visitT \& }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classBinarySearchTree_ae569fa0db122bc48e12387a34604a840}\label{classBinarySearchTree_ae569fa0db122bc48e12387a34604a840}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!inorderTraverse@{inorderTraverse}}
+\index{inorderTraverse@{inorderTraverse}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inorderTraverse()}{inorderTraverse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::inorder\+Traverse (\begin{DoxyParamCaption}\item[{void }]{visitT \&,  }\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Recursively traverses the tree in the inorder which means \char`\"{}\+Left, Node, Right\char`\"{}. While traversing, the passed in visit function is called on each node. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & The passed in function to be called on each node\textquotesingle{}s data/item. \\
+\hline
+{\em node\+Ptr} & The node of the tree to be visited. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBinarySearchTree_a2bc158ccdf2dc1c7af7c599eb2584cb4}\label{classBinarySearchTree_a2bc158ccdf2dc1c7af7c599eb2584cb4}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::is\+Empty\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTreeInterface_ae89e32b2f857c2084fa276103f13a024}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_a4ab54d58c24fd88280365df7ccbbb595}\label{classBinarySearchTree_a4ab54d58c24fd88280365df7ccbbb595}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!placeNode@{placeNode}}
+\index{placeNode@{placeNode}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{placeNode()}{placeNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::place\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{sub\+Tree\+Root\+Ptr,  }\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{new\+Node\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Recursively find the place to insert the node in the tree. 
+
+
+\begin{DoxyEnumerate}
+\item If the sub\+Tree\+Root\+Ptr is empty, then the node is placed as the root.
+\begin{DoxyEnumerate}
+\item The node is placed in the left subtree if the new node is less than the current node
+\begin{DoxyEnumerate}
+\item The node is placed in the right subtree if the new node is greater than the current node.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+Tree\+Root\+Ptr} & The root of the subtree to search. \\
+\hline
+{\em new\+Node\+Ptr} & The node to be placed in the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary\+Node$<$\+T$>$$\ast$ The root of the subtree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBinarySearchTree_a6f1561cf932c7211af5e382d7a28cd3a}\label{classBinarySearchTree_a6f1561cf932c7211af5e382d7a28cd3a}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!postorderTraverse@{postorderTraverse}}
+\index{postorderTraverse@{postorderTraverse}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{postorderTraverse()}{postorderTraverse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::postorder\+Traverse (\begin{DoxyParamCaption}\item[{void }]{visitT \& }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classBinarySearchTree_a6ea97dcd88e8bb137aa0617513b781a8}\label{classBinarySearchTree_a6ea97dcd88e8bb137aa0617513b781a8}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!postorderTraverse@{postorderTraverse}}
+\index{postorderTraverse@{postorderTraverse}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{postorderTraverse()}{postorderTraverse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::postorder\+Traverse (\begin{DoxyParamCaption}\item[{void }]{visitT \&,  }\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Recursively traverses the tree in the postorder which means \char`\"{}\+Left, Right, Node\char`\"{}. While traversing, the passed in visit function is called on each node. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & The passed in function to be called on each node\textquotesingle{}s data/item. \\
+\hline
+{\em node\+Ptr} & The node of the tree to be visited. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBinarySearchTree_a3a6ae0f0b1883b2130d476c8f8769e09}\label{classBinarySearchTree_a3a6ae0f0b1883b2130d476c8f8769e09}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!preorderTraverse@{preorderTraverse}}
+\index{preorderTraverse@{preorderTraverse}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{preorderTraverse()}{preorderTraverse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::preorder\+Traverse (\begin{DoxyParamCaption}\item[{void }]{visitT \& }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classBinarySearchTree_a0ded577e0b47f04d0e334fdf8b521743}\label{classBinarySearchTree_a0ded577e0b47f04d0e334fdf8b521743}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!preorderTraverse@{preorderTraverse}}
+\index{preorderTraverse@{preorderTraverse}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{preorderTraverse()}{preorderTraverse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::preorder\+Traverse (\begin{DoxyParamCaption}\item[{void }]{visitT \&,  }\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Recursively traverses the tree in the preorder which means \char`\"{}\+Node, Left, Right\char`\"{}. While traversing, the passed in visit function is called on each node. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & The passed in function to be called on each node\textquotesingle{}s data/item. \\
+\hline
+{\em node\+Ptr} & The node of the tree to be visited. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBinarySearchTree_a7d7a1a4492434dfd315fa91db8ccee68}\label{classBinarySearchTree_a7d7a1a4492434dfd315fa91db8ccee68}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{const T \&}]{an\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTreeInterface_acfa7294d98413799233d31dc09e85d87}{Tree\+Interface$<$ T $>$}}.
+
+\mbox{\Hypertarget{classBinarySearchTree_aee511f3f53a5d5c2adb612fbf601cb4b}\label{classBinarySearchTree_aee511f3f53a5d5c2adb612fbf601cb4b}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!removeLeftmostNode@{removeLeftmostNode}}
+\index{removeLeftmostNode@{removeLeftmostNode}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeLeftmostNode()}{removeLeftmostNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::remove\+Leftmost\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{sub\+Tree\+Root\+Ptr,  }\item[{T \&}]{inorder\+Successor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Finds the least value in the tree using sub\+Tree\+Root\+Ptr as the root. It saves the least value to inorder\+Successor. It then deletes the least value while keeping the structure in tact. This is a helper method to remove\+Node. 
+
+
+\begin{DoxyEnumerate}
+\item If sub\+Tree\+Root\+Ptr has a left child, execute recursively until the least value is found. ~\newline
+ 1b. Set as sub\+Tree\+Root\+Ptr ~\newline
+
+\begin{DoxyEnumerate}
+\item Set the inorder\+Successor to be the least value. ~\newline
+
+\item Delete the sub\+Tree\+Root\+Ptr (which is the leastmost value) using remove\+Node method. This method returns the right subtree of sub\+Tree\+Root\+Ptr since sub\+Tree\+Root\+Ptr should not have a left subtree. ~\newline
+
+\item Return the right subtree to use later for connections.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+Tree\+Root\+Ptr} & The current root of the sub\+Tree. \\
+\hline
+{\em inorder\+Successor} & The value to be changed to the least value. Passed in by reference. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary\+Node$<$\+T$>$$\ast$ Returns the right subtree of the leftmost node. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBinarySearchTree_a84891f4be38610572dc2743da6dff533}\label{classBinarySearchTree_a84891f4be38610572dc2743da6dff533}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{node\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Removes node\+Ptr and returns the children of node\+Ptr. It returns this value to connect to the upper tree. This is a helper method to remove\+Value. 
+
+
+\begin{DoxyEnumerate}
+\item If node\+Ptr is a leaf, there is nothing to connect. ~\newline
+
+\begin{DoxyEnumerate}
+\item If node\+Ptr has a right child, the right child is returned. ~\newline
+
+\item If node\+Ptr has a left child, the left child is returned. ~\newline
+
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+If node\+Ptr has both children, the smallest value in the right sub\+Tree of node\+Ptr is found. Replace the \char`\"{}to be deleted\char`\"{} node\textquotesingle{}s data with the smallest value. Remove the smallest value found in the right subtree since this is now a duplicate. ~\newline
+
+\begin{DoxyEnumerate}
+\item This workes because the smallest value in a right subtree should have no left nodes. The only possible nodes for a smallest value in a subtree is right nodes. ~\newline
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Ptr} & The node to be deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary\+Node$<$\+T$>$$\ast$ Returns the filled subtree of the deleted node for further connections to the parent. 
+\end{DoxyReturn}
+
+\end{DoxyEnumerate}\mbox{\Hypertarget{classBinarySearchTree_a11e3fc23b2721ff85a10debae01e9282}\label{classBinarySearchTree_a11e3fc23b2721ff85a10debae01e9282}} 
+\index{BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}!removeValue@{removeValue}}
+\index{removeValue@{removeValue}!BinarySearchTree$<$ T $>$@{BinarySearchTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeValue()}{removeValue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}$<$ T $>$\+::remove\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBinaryNode}{Binary\+Node}}$<$ T $>$ $\ast$}]{sub\+Tree\+Root\+Ptr,  }\item[{const T}]{target,  }\item[{bool \&}]{success }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Recursively searches for the target in the sub\+Tree and removes it if found. This is a helper method to remove. 
+
+
+\begin{DoxyEnumerate}
+\item Returns false if the tree is empty or target is not in sub\+Tree. ~\newline
+
+\begin{DoxyEnumerate}
+\item Checks if sub\+Tree\+Root\+Ptr is greater than the target. ~\newline
+
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+If so, recursively searches the left subtree with the remove\+Value function. ~\newline
+
+\begin{DoxyEnumerate}
+\item If not, recursively searches the right subtree with the remove\+Value function. ~\newline
+
+\end{DoxyEnumerate}
+
+If the target is found, the node is removed with the remove\+Node function and the function returns true. ~\newline
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of data in the tree. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+Tree\+Root\+Ptr} & The current root of the sub\+Tree. \\
+\hline
+{\em target} & The target to delete. \\
+\hline
+{\em success} & Returns true if found and deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary\+Node$<$\+T$>$$\ast$ Returns the filled subtree of the deleted node. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{BinarySearchTree_8h}{Binary\+Search\+Tree.\+h}}\item 
+src/\mbox{\hyperlink{BinarySearchTree_8cpp}{Binary\+Search\+Tree.\+cpp}}\end{DoxyCompactItemize}
