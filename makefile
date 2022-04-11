@@ -19,6 +19,9 @@ $(ODIR)/%.o: %.cpp $(DEPS)
 main: $(OBJS)
 	g++ $(CPPFLAGS) -o $@ $^
 
+docs:
+	doxygen Doxyfile
+
 clean:
 	rm $(ODIR)/*.o main
 
